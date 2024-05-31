@@ -46,6 +46,7 @@ Primary key (UDM_ID)
 CREATE TABLE SUCURSALES_DE_SUPERMERCADOS(
 SDS_ID int auto_increment,
 SDS_NOMBRES Varchar (10) not null
+Primary Key (SDS_ID)
 );
 
 INSERT INTO PRODUCTOS (PRO_NOMBRES, PRO_MAR_ID, PRO_UDM_ID, PRO_PES_ID, PRO_VALOR) Values ("Arroz","1","2","1","2030")
