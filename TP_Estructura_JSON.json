@@ -1,0 +1,67 @@
+TABLAS NO RELACIONALES (JSON)
+
+[
+
+ {
+       "id": 1,
+       "nombre": "Gabinetes",
+       "presentaciones":[
+                               {
+                               "id": 1,
+                               "tipo": "minitorre"
+                               },
+
+                               {
+                               "id": 2,
+                               "tipo": "semitorre"
+                               },
+                               
+                               {
+                               "id": 3,
+                               "tipo": "torre"
+                               }
+                         ]
+ },
+ 
+ {     "id": 2,
+       "nombre": "Fuentes de alimentacion",
+       "presentaciones":[
+                                {
+                                "id": 1,
+                                "tipo": "Modular"
+                                },
+
+                                {
+                                "id": 2,
+                                "tipo": "SemiModular"
+                                },
+
+                                {
+                                "id": 3,
+                                "tipo": "FullModular"
+                                },
+                        ]
+ },
+
+ {     "id": 3,
+       "nombre": "Motherboard",
+       "presentaciones":[
+                                {
+                                "id": 1,
+                                "tipo": "MiniATX"
+                                },
+
+                                {
+                                "id": 2,
+                                "tipo": "MicroATX"
+                                },
+
+                                {
+                                "id": 3,
+                                "tipo": "StandardATX"
+                                }
+                        ]
+ }
+
+]
+

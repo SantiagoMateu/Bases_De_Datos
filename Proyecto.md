@@ -8,65 +8,65 @@ Información: El gobierno ha implementado que cada familia debe tener los siguie
 
 
  PRODUCTOS                                                                        
-|---------------------------------------------------------------------------------|
-|PRO_ID|PRO_Nombres|PRO_Marcas_ID|PRO_Unidades de Medida_ID|PRO_Pesos_ID|PRO_Valor|
-|------|-----------|-------------|-------------------------|------------|---------|
-|  1   |  Arroz	   |     1	      |            2            |	    1      |  2030   |
-|  2   |  Aceite	  |     2	      |            3	           |     2	     |  3260   |
-|  3   |  Azúcar	  |     3	      |            1	           |     3	     |  1349   |
-|  4   |  Polenta	 |     4	      |            2	           |     4	     |  1868   |
-|  5   |  Lata     |     5	      |            2            |	    5	     |  1095   |
------------------------------------------------------------------------------------
+|-------------------------------------------------------------------------|
+|PRO_ID|PRO_Nombres|PRO_MAR_ID |PRO_UDM_ID|PRO_PES_ID|PRO_Valor|PRO_Ventas|
+|------|-----------|-----------|----------|----------|---------|----------|
+|  1   |  Arroz	   |     1	   |     2    |	   1     |  2030   |    50    |
+|  2   |  Aceite   |     2	   |     3	  |    2	 |  3260   |    40    |
+|  3   |  Azucar   |     3	   |     1	  |    3	 |  1349   |    30    |
+|  4   |  Polenta  |     4	   |     2	  |    4	 |  1868   |    20    |
+|  5   |  Lata     |     5     |     2    |	   5     |  1095   |    10    |
+---------------------------------------------------------------------------
 
  STOCKS                                           
 |-------------------------------------------------|                                  
 | STO_ID | STO_PRO_ID | STO_SDS_ID | STO_Cantidad |
 |--------|------------|------------|--------------|
 |   1    |     1      |     1      |     1000     |
-|   2    |     2	     |     1  	   |     400      |
-|   3    |     3      |     2	     |     300      |
-|   4    |     4   	  |     3	     |     250      |
-|   5    |     5 	    |     2	     |     300      |
+|   2    |     2      |     1      |     400      |
+|   3    |     3      |     2	   |     300      |
+|   4    |     4   	  |     3	   |     250      |
+|   5    |     5 	  |     2	   |     300      |
 |--------|------------|------------|--------------|
 
  MARCAS                
 |----------------------|          
 | MAR_ID | MAR_Nombres |
 |--------|-------------|
-|   1	   |  Lucchetti  |
-|   2	   |  Natura     |
-|   3	   |  Ledesma    |
-|   4	   |  Arcor      |
-|   5	   |  Campagnola |
+|   1	 | Lucchett    |
+|   2	 | Natura      |
+|   3	 | Ledesma     |
+|   4	 | Arcor       |
+|   5	 | Campagnola  |
 |--------|-------------|
 
  PESOS    
 |----------------------|             
 | PES_ID | PES_Números |
 |--------|-------------|
-|   1	   |     500     |
-|   2	   |     1.5     |
-|   3	   |     1       |
-|   4 	  |     730     |
-|   5	   |     300     |
+|   1	 |     500     |
+|   2    |     1.5     |
+|   3    |     1       |
+|   4 	 |     730     |
+|   5	 |     300     |
 |--------|-------------|
 
  UNIDADES_DE_MEDIDA
 |---------------------|
 | UDM_ID | UDM_Nombres|
 |--------|------------|
-|   1	   | Kilogramos |
-|   2	   | Gramos     |
-|   3	   | Litros     |
+|   1	 | Kilogramos |
+|   2	 | Gramos     |
+|   3	 | Litros     |
 |--------|------------|
 
  SUCURSALES_DE_SUPERMERCADO
 |----------------------|
 | SDS_ID | SDS_Nombres |
 |--------|-------------|
-|   1	   |  Bolívar    |
-|   2	   |  Olavarría  |
-|   3	   |  Junín      |
+|   1	 |  Bolívar    |
+|   2	 |  Olavarría  |
+|   3	 |  Junín      |
 |--------|-------------|
 
 PRO_Nombres: Es un tipo de Dato “Varchar”
@@ -90,30 +90,41 @@ WHERE PRO_ID in 1
 
 PRODUCTOS
 | PRO_ID | PRO_Nombres |
-|   1	   |   Arroz     |
+|   1	 |   Arroz     |
 
 SELECT PRO_Nombres, MAR_Nombres
 FROM PRODUCTOS PRO, MARCAS MAR
 WHERE PRO.PRO_MAR_ID = MAR,MAR_ID
 
 | PRO_Nombres |	MAR_Nombres |
-|   Arroz	    | Lucchetti   |
+|   Arroz	  | Lucchetti   |
 
 UPDATE SUCURSAL_DE_SUPERMERCADOS
 SET SDS_Nombres = Tandil
 WHERE SDS_ID = 3
 
 | SDS_ID | SDS_Nombres |
-|   3	   | Tandil      |
+|   3	 | Tandil      |
 
 INSERT INTO STOCKS (STO_PRO_ID, STO_SDS_ID, STO_Cantidad) Values ( 6,6,3,500 )
 
 | STO_ID | STO_PRO_ID | STO_SDS_ID | STO_Cantidad |
-|   6	   |     6	     |      3	    |     500      |
+|   6	 |     6	  |      3	   |     500      |
 
 DELET FROM SUCURSALES_DE_SUPERMERCADO 
 WHERE SDS_ID = 1
 
 SUCURSALES_DE_SUPERMERCADO
 | SDS_ID | SDS_Nombres |
-|   1	   | Bolívar     |
+|   1	 | Bolivar     |
+
+
+SELECT SUM (PRO_Ventas) AS Total_vendido
+FROM PRODUCTOS;
+
+Total_vendido= 150
+
+SELECT COUNT (PRO_Nombres) AS Cantidad_De_Productos
+FROM PRODUCTOS
+
+Cantidad_De_Productos= 5
